@@ -1,0 +1,122 @@
+[
+  {
+    "Id": "a1f1c1d1-0001-4a11-aaaa-111111111111",
+    "Name": "Laptop Dell XPS 13",
+    "Stock": 5,
+    "CreatedDate": "2026-03-20T10:00:00+00:00"
+  },
+  {
+    "Id": "a1f1c1d1-0002-4a11-aaaa-222222222222",
+    "Name": "Mouse Logitech MX Master 3",
+    "Stock": 10,
+    "CreatedDate": "2026-03-20T10:01:00+00:00"
+  },
+  {
+    "Id": "a1f1c1d1-0003-4a11-aaaa-333333333333",
+    "Name": "Teclado Mec\u00E1nico Redragon",
+    "Stock": 25,
+    "CreatedDate": "2026-03-20T10:02:00+00:00"
+  },
+  {
+    "Id": "a1f1c1d1-0004-4a11-aaaa-444444444444",
+    "Name": "Monitor LG 27 pulgadas",
+    "Stock": 18,
+    "CreatedDate": "2026-03-20T10:03:00+00:00"
+  },
+  {
+    "Id": "a1f1c1d1-0005-4a11-aaaa-555555555555",
+    "Name": "Silla Gamer Corsair",
+    "Stock": 12,
+    "CreatedDate": "2026-03-20T10:04:00+00:00"
+  },
+  {
+    "Id": "a1f1c1d1-0006-4a11-aaaa-666666666666",
+    "Name": "Aud\u00EDfonos Sony WH-1000XM5",
+    "Stock": 30,
+    "CreatedDate": "2026-03-20T10:05:00+00:00"
+  },
+  {
+    "Id": "a1f1c1d1-0007-4a11-aaaa-777777777777",
+    "Name": "Disco SSD Samsung 1TB",
+    "Stock": 50,
+    "CreatedDate": "2026-03-20T10:06:00+00:00"
+  },
+  {
+    "Id": "a1f1c1d1-0008-4a11-aaaa-888888888888",
+    "Name": "Memoria RAM Corsair 16GB",
+    "Stock": 35,
+    "CreatedDate": "2026-03-20T10:07:00+00:00"
+  },
+  {
+    "Id": "a1f1c1d1-0009-4a11-aaaa-999999999999",
+    "Name": "Smartphone Samsung Galaxy S23",
+    "Stock": 22,
+    "CreatedDate": "2026-03-20T10:08:00+00:00"
+  },
+  {
+    "Id": "a1f1c1d1-0010-4a11-aaaa-101010101010",
+    "Name": "Tablet iPad Air",
+    "Stock": 17,
+    "CreatedDate": "2026-03-20T10:09:00+00:00"
+  },
+  {
+    "Id": "a1f1c1d1-0011-4a11-aaaa-111111111110",
+    "Name": "Cargador USB-C Anker",
+    "Stock": 60,
+    "CreatedDate": "2026-03-20T10:10:00+00:00"
+  },
+  {
+    "Id": "a1f1c1d1-0012-4a11-aaaa-121212121212",
+    "Name": "Cable HDMI 4K",
+    "Stock": 80,
+    "CreatedDate": "2026-03-20T10:11:00+00:00"
+  },
+  {
+    "Id": "a1f1c1d1-0013-4a11-aaaa-131313131313",
+    "Name": "Webcam Logitech C920",
+    "Stock": 27,
+    "CreatedDate": "2026-03-20T10:12:00+00:00"
+  },
+  {
+    "Id": "a1f1c1d1-0014-4a11-aaaa-141414141414",
+    "Name": "Micr\u00F3fono Blue Yeti",
+    "Stock": 14,
+    "CreatedDate": "2026-03-20T10:13:00+00:00"
+  },
+  {
+    "Id": "a1f1c1d1-0015-4a11-aaaa-151515151515",
+    "Name": "Router TP-Link AX3000",
+    "Stock": 19,
+    "CreatedDate": "2026-03-20T10:14:00+00:00"
+  },
+  {
+    "Id": "a1f1c1d1-0016-4a11-aaaa-161616161616",
+    "Name": "Impresora HP LaserJet",
+    "Stock": 11,
+    "CreatedDate": "2026-03-20T10:15:00+00:00"
+  },
+  {
+    "Id": "a1f1c1d1-0017-4a11-aaaa-171717171717",
+    "Name": "Smartwatch Apple Watch SE",
+    "Stock": 23,
+    "CreatedDate": "2026-03-20T10:16:00+00:00"
+  },
+  {
+    "Id": "a1f1c1d1-0018-4a11-aaaa-181818181818",
+    "Name": "Teclado Apple Magic Keyboard",
+    "Stock": 20,
+    "CreatedDate": "2026-03-20T10:17:00+00:00"
+  },
+  {
+    "Id": "a1f1c1d1-0019-4a11-aaaa-191919191919",
+    "Name": "Mouse Pad XL",
+    "Stock": 70,
+    "CreatedDate": "2026-03-20T10:18:00+00:00"
+  },
+  {
+    "Id": "a1f1c1d1-0020-4a11-aaaa-202020202020",
+    "Name": "UPS APC 1500VA",
+    "Stock": 9,
+    "CreatedDate": "2026-03-20T10:19:00+00:00"
+  }
+]

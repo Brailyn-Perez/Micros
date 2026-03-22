@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  inventory-api:
+    build: ./inventory-service
+    ports:
+      - "5001:80"
+
+  orders-api:
+    build: ./orders-service
+    ports:
+      - "5002:80"
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
