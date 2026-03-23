@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Usuario\\Desktop\\Micros\\Inventory\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8F45D36C-6E54-4439-BA66-77462767930F}|Inventory.Consumer\\Inventory.Consumer.csproj|c:\\users\\usuario\\desktop\\micros\\inventory\\inventory.consumer\\consumers\\orderscreatedconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F45D36C-6E54-4439-BA66-77462767930F}|Inventory.Consumer\\Inventory.Consumer.csproj|solutionrelative:inventory.consumer\\consumers\\orderscreatedconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7AAF3853-7EB3-49D0-A087-44C9C7DA9A20}|Inventory.infrastructure\\Inventory.infrastructure.csproj|c:\\users\\usuario\\desktop\\micros\\inventory\\inventory.infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AAF3853-7EB3-49D0-A087-44C9C7DA9A20}|Inventory.infrastructure\\Inventory.infrastructure.csproj|solutionrelative:inventory.infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ADEB3EB5-E9EE-42CD-8197-EDCB22838AEB}|Inventory.Data\\Inventory.Data.csproj|c:\\users\\usuario\\desktop\\micros\\inventory\\inventory.data\\inventorydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ADEB3EB5-E9EE-42CD-8197-EDCB22838AEB}|Inventory.Data\\Inventory.Data.csproj|solutionrelative:inventory.data\\inventorydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7AAF3853-7EB3-49D0-A087-44C9C7DA9A20}|Inventory.infrastructure\\Inventory.infrastructure.csproj|c:\\users\\usuario\\desktop\\micros\\inventory\\inventory.infrastructure\\repositories\\base\\genericrepository.cs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{7AAF3853-7EB3-49D0-A087-44C9C7DA9A20}|Inventory.infrastructure\\Inventory.infrastructure.csproj|solutionrelative:inventory.infrastructure\\repositories\\base\\genericrepository.cs||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C32344E6-BFF8-4B8F-A50A-D2A04B0307CA}|Inventory.Domain\\Inventory.Domain.csproj|c:\\users\\usuario\\desktop\\micros\\inventory\\inventory.domain\\repository\\igenericrepository.cs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C32344E6-BFF8-4B8F-A50A-D2A04B0307CA}|Inventory.Domain\\Inventory.Domain.csproj|solutionrelative:inventory.domain\\repository\\igenericrepository.cs||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AAF3853-7EB3-49D0-A087-44C9C7DA9A20}|Inventory.infrastructure\\Inventory.infrastructure.csproj|c:\\users\\usuario\\desktop\\micros\\inventory\\inventory.infrastructure\\inventorydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7AAF3853-7EB3-49D0-A087-44C9C7DA9A20}|Inventory.infrastructure\\Inventory.infrastructure.csproj|solutionrelative:inventory.infrastructure\\inventorydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32C18148-B8A3-4FDE-94DB-928A62FA1311}|Inventory.Application\\Inventory.Application.csproj|c:\\users\\usuario\\desktop\\micros\\inventory\\inventory.application\\interfaces\\repositories\\iproductrepository.cs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{32C18148-B8A3-4FDE-94DB-928A62FA1311}|Inventory.Application\\Inventory.Application.csproj|solutionrelative:inventory.application\\interfaces\\repositories\\iproductrepository.cs||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32C18148-B8A3-4FDE-94DB-928A62FA1311}|Inventory.Application\\Inventory.Application.csproj|c:\\users\\usuario\\desktop\\micros\\inventory\\inventory.application\\dtos\\product\\productquery.cs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{32C18148-B8A3-4FDE-94DB-928A62FA1311}|Inventory.Application\\Inventory.Application.csproj|solutionrelative:inventory.application\\dtos\\product\\productquery.cs||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +34,86 @@
       "DocumentGroups": [
         {
           "DockedWidth": 418,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProductQuery.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\Micros\\Inventory\\Inventory.Application\\Dtos\\Product\\ProductQuery.cs",
+              "RelativeDocumentMoniker": "Inventory.Application\\Dtos\\Product\\ProductQuery.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\Micros\\Inventory\\Inventory.Application\\Dtos\\Product\\ProductQuery.cs",
+              "RelativeToolTip": "Inventory.Application\\Dtos\\Product\\ProductQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T17:37:17.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\Micros\\Inventory\\Inventory.Application\\Interfaces\\Repositories\\IProductRepository.cs",
+              "RelativeDocumentMoniker": "Inventory.Application\\Interfaces\\Repositories\\IProductRepository.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\Micros\\Inventory\\Inventory.Application\\Interfaces\\Repositories\\IProductRepository.cs",
+              "RelativeToolTip": "Inventory.Application\\Interfaces\\Repositories\\IProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T17:34:40.805Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IGenericRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\Micros\\Inventory\\Inventory.Domain\\Repository\\IGenericRepository.cs",
+              "RelativeDocumentMoniker": "Inventory.Domain\\Repository\\IGenericRepository.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\Micros\\Inventory\\Inventory.Domain\\Repository\\IGenericRepository.cs",
+              "RelativeToolTip": "Inventory.Domain\\Repository\\IGenericRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T17:32:56.387Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GenericRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\Micros\\Inventory\\Inventory.infrastructure\\Repositories\\Base\\GenericRepository.cs",
+              "RelativeDocumentMoniker": "Inventory.infrastructure\\Repositories\\Base\\GenericRepository.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\Micros\\Inventory\\Inventory.infrastructure\\Repositories\\Base\\GenericRepository.cs",
+              "RelativeToolTip": "Inventory.infrastructure\\Repositories\\Base\\GenericRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T17:32:33.607Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\Micros\\Inventory\\Inventory.infrastructure\\Repositories\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "Inventory.infrastructure\\Repositories\\ProductRepository.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\Micros\\Inventory\\Inventory.infrastructure\\Repositories\\ProductRepository.cs",
+              "RelativeToolTip": "Inventory.infrastructure\\Repositories\\ProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T17:31:54.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "InventoryDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\Micros\\Inventory\\Inventory.infrastructure\\InventoryDbContext.cs",
+              "RelativeDocumentMoniker": "Inventory.infrastructure\\InventoryDbContext.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\Micros\\Inventory\\Inventory.infrastructure\\InventoryDbContext.cs",
+              "RelativeToolTip": "Inventory.infrastructure\\InventoryDbContext.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-23T17:31:50.725Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -27,32 +121,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OrdersCreatedConsumer.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\Micros\\Inventory\\Inventory.Consumer\\Consumers\\OrdersCreatedConsumer.cs",
-              "RelativeDocumentMoniker": "Inventory.Consumer\\Consumers\\OrdersCreatedConsumer.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\Micros\\Inventory\\Inventory.Consumer\\Consumers\\OrdersCreatedConsumer.cs",
-              "RelativeToolTip": "Inventory.Consumer\\Consumers\\OrdersCreatedConsumer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-21T14:28:54.881Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "InventoryDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\Micros\\Inventory\\Inventory.Data\\InventoryDbContext.cs",
-              "RelativeDocumentMoniker": "Inventory.Data\\InventoryDbContext.cs",
-              "ToolTip": "C:\\Users\\Usuario\\Desktop\\Micros\\Inventory\\Inventory.Data\\InventoryDbContext.cs",
-              "RelativeToolTip": "Inventory.Data\\InventoryDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-21T14:26:27.336Z",
-              "EditorCaption": ""
             }
           ]
         }

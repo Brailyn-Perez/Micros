@@ -1,4 +1,4 @@
-using Inventory.Data;
+using Inventory.infrastructure.Extensions;
 
 namespace Inventory.Api
 {
@@ -15,9 +15,7 @@ namespace Inventory.Api
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            
-            builder.Services.AddScoped<ProductFileRepository>();
-
+            builder.Services.AddInfrastructure(builder.Configuration);
 
             var app = builder.Build();
 

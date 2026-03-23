@@ -9,3 +9,4 @@ C:\Users\Usuario\Desktop\Micros\Inventory\Inventory.Domain\obj\Debug\net8.0\Inve
 C:\Users\Usuario\Desktop\Micros\Inventory\Inventory.Domain\obj\Debug\net8.0\refint\Inventory.Domain.dll
 C:\Users\Usuario\Desktop\Micros\Inventory\Inventory.Domain\obj\Debug\net8.0\Inventory.Domain.pdb
 C:\Users\Usuario\Desktop\Micros\Inventory\Inventory.Domain\obj\Debug\net8.0\ref\Inventory.Domain.dll
+C:\Users\Usuario\Desktop\Micros\Inventory\Inventory.Domain\obj\Debug\net8.0\Inventory.Domain.sourcelink.json

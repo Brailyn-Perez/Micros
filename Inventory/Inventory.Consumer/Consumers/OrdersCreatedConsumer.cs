@@ -1,4 +1,4 @@
-﻿using Inventory.Data;
+﻿using Inventory.Application.Interfaces.Repositories;
 using MassTransit;
 using Orders.Api.Messages;
 
@@ -6,25 +6,17 @@ namespace Inventory.Consumer.Consumers
 {
     public class OrdersCreatedConsumer : IConsumer<OrderCreated>
     {
-        private readonly ProductFileRepository _repo;
-
-        public OrdersCreatedConsumer()
+        private readonly IProductRepository _repository;
+        public async Task Consume(ConsumeContext<OrderCreated> context)
         {
-            _repo = new ProductFileRepository();
-        }
-
-        public Task Consume(ConsumeContext<OrderCreated> context)
-        {
-            var product = _repo.GetProductById(context.Message.ProductId);
+            var product = await _repository.GetByIdAsync(context.Message.ProductId, context.CancellationToken);
 
             if (product != null && product.Stock >= context.Message.Quantity)
             {
-                _repo.DecreaseStock(context.Message.ProductId, context.Message.Quantity);
+                await _repository.DecreaseStockAsync(context.Message.ProductId, context.Message.Quantity, context.CancellationToken);
             }
 
-            _repo.SaveChanges();
-
-            return Task.CompletedTask;
+            await _repository.SaveChangesAsync(context.CancellationToken);
         }
     }
 }
