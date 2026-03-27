@@ -7,6 +7,11 @@ on:
         required: true
         type: string
 
+env:
+  DOTNET_VERSION: '8.0.x'
+  CONFIGURATION: Release
+  ARTIFACTS_PATH: ./artifacts
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -18,13 +23,52 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      # ⭐ En PR: Empaquetar localmente Orders.Contracts
+      - name: Pack internal dependencies (for PR)
+        if: github.event_name == 'pull_request'
+        run: |
+          mkdir -p ${{ env.ARTIFACTS_PATH }}
+          dotnet pack Src/Orders/Orders.Contracts/Orders.Contracts.csproj \
+            --configuration ${{ env.CONFIGURATION }} \
+            --output ${{ env.ARTIFACTS_PATH }}
+
+      # ⭐ En main: Usar GitHub Packages (ya publicado)
+      - name: Configure GitHub Packages (for main)
+        if: github.event_name == 'push'
+        run: |
+          dotnet nuget add source --username "${{ github.actor }}" \
+            --password "${{ secrets.GITHUB_TOKEN }}" \
+            --store-password-in-clear-text \
+            --name github \
+            "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
+
+      # ⭐ En PR: Añadir fuente local
+      - name: Configure local NuGet source (for PR)
+        if: github.event_name == 'pull_request'
+        run: |
+          dotnet nuget add source ${{ github.workspace }}/${{ env.ARTIFACTS_PATH }} \
+            -n local
 
       - name: Restore
-        run: dotnet restore ${{ inputs.service-path }}
+        run: dotnet restore "${{ inputs.service-path }}"
 
       - name: Build
-        run: dotnet build ${{ inputs.service-path }} --no-restore --configuration Release
+        run: dotnet build "${{ inputs.service-path }}" \
+          --no-restore \
+          --configuration ${{ env.CONFIGURATION }}
 
-      - name: Test
-        run: dotnet test ${{ inputs.service-path }} --no-build --configuration Release --verbosity normal
+      - name: Check for tests
+        id: check-tests
+        run: |
+          TEST_PROJECT=$(find "${{ inputs.service-path }}" -maxdepth 3 \
+            \( -name "*Tests.csproj" -o -name "*Test.csproj" \) | head -1)
+          echo "found=$([ -n "$TEST_PROJECT" ] && echo 'true' || echo 'false')" >> $GITHUB_OUTPUT
+
+      - name: Run tests
+        if: steps.check-tests.outputs.found == 'true'
+        run: |
+          dotnet test "${{ inputs.service-path }}" \
+            --no-build \
+            --configuration ${{ env.CONFIGURATION }}

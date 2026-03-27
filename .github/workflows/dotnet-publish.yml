@@ -1,0 +1,42 @@
+name: dotnet-publish
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore Orders
+        run: dotnet restore Src/Orders/Orders.sln
+
+      - name: Build Orders
+        run: dotnet build Src/Orders/Orders.sln --configuration Release --no-restore
+
+      - name: Pack Orders.Contracts
+        run: |
+          dotnet pack Src/Orders/Orders.Contracts/Orders.Contracts.csproj \
+            --configuration Release \
+            --output ./nupkg
+
+      - name: Publish to GitHub Packages
+        run: |
+          dotnet nuget add source --username "${{ github.actor }}" \
+            --password "${{ secrets.GITHUB_TOKEN }}" \
+            --store-password-in-clear-text \
+            --name github \
+            "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
+          
+          dotnet nuget push ./nupkg/*.nupkg \
+            --source github \
+            --skip-duplicate
