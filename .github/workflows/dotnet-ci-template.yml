@@ -25,7 +25,7 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      # ⭐ En PR: Empaquetar localmente Orders.Contracts
+      # ⭐ AQUI: En PR empaqueta localmente
       - name: Pack internal dependencies (for PR)
         if: github.event_name == 'pull_request'
         run: |
@@ -34,7 +34,6 @@ jobs:
             --configuration ${{ env.CONFIGURATION }} \
             --output ${{ env.ARTIFACTS_PATH }}
 
-      # ⭐ En main: Usar GitHub Packages (ya publicado)
       - name: Configure GitHub Packages (for main)
         if: github.event_name == 'push'
         run: |
@@ -44,7 +43,6 @@ jobs:
             --name github \
             "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
 
-      # ⭐ En PR: Añadir fuente local
       - name: Configure local NuGet source (for PR)
         if: github.event_name == 'pull_request'
         run: |
