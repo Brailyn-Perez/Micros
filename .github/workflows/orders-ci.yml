@@ -1,0 +1,14 @@
+name: orders-ci
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'Src/Orders/**'
+      - '.github/workflows/orders-ci.yml'
+
+jobs:
+  ci:
+    uses: ./.github/workflows/dotnet-ci-template.yml
+    with:
+      service-path: Src/Orders/Orders.sln   
