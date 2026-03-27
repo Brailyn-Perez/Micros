@@ -25,11 +25,12 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      # ⭐ AQUI: En PR empaqueta localmente
       - name: Pack internal dependencies (for PR)
         if: github.event_name == 'pull_request'
         run: |
           mkdir -p ${{ env.ARTIFACTS_PATH }}
+          dotnet build Src/Orders/Orders.Contracts/Orders.Contracts.csproj \
+            --configuration ${{ env.CONFIGURATION }}
           dotnet pack Src/Orders/Orders.Contracts/Orders.Contracts.csproj \
             --configuration ${{ env.CONFIGURATION }} \
             --output ${{ env.ARTIFACTS_PATH }}
