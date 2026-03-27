@@ -6,6 +6,10 @@ on:
     paths:
       - 'Src/Inventory/**'
       - '.github/workflows/inventory-ci.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'Src/Inventory/**'
 
 jobs:
   ci:

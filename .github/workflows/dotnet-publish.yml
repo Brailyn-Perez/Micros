@@ -3,9 +3,15 @@ name: dotnet-publish
 on:
   push:
     branches: [main]
+    paths:
+      - 'Src/Orders/Orders.Contracts/**'
+
+env:
+  DOTNET_VERSION: '8.0.x'
+  CONFIGURATION: Release
 
 jobs:
-  publish:
+  publish-orders-contracts:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,28 +21,52 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Restore Orders
         run: dotnet restore Src/Orders/Orders.sln
 
       - name: Build Orders
-        run: dotnet build Src/Orders/Orders.sln --configuration Release --no-restore
+        run: dotnet build Src/Orders/Orders.sln \
+          --configuration ${{ env.CONFIGURATION }} \
+          --no-restore
+
+      - name: Run Orders Tests
+        run: dotnet test Src/Orders/Orders.sln \
+          --configuration ${{ env.CONFIGURATION }} \
+          --no-build
 
       - name: Pack Orders.Contracts
         run: |
+          mkdir -p ./nupkg
           dotnet pack Src/Orders/Orders.Contracts/Orders.Contracts.csproj \
-            --configuration Release \
+            --configuration ${{ env.CONFIGURATION }} \
             --output ./nupkg
 
-      - name: Publish to GitHub Packages
+      - name: Configure GitHub Packages
         run: |
           dotnet nuget add source --username "${{ github.actor }}" \
             --password "${{ secrets.GITHUB_TOKEN }}" \
             --store-password-in-clear-text \
             --name github \
             "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
-          
+
+      - name: Publish to GitHub Packages
+        run: |
           dotnet nuget push ./nupkg/*.nupkg \
             --source github \
-            --skip-duplicate
+            --skip-duplicate \
+            --api-key ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: orders-contracts-${{ github.run_number }}
+          release_name: Orders.Contracts Release ${{ github.run_number }}
+          body: |
+            Automated release from Orders.Contracts
+            Commit: ${{ github.sha }}
+          draft: false
+          prerelease: false

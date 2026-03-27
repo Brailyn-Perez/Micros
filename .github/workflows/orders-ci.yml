@@ -6,9 +6,14 @@ on:
     paths:
       - 'Src/Orders/**'
       - '.github/workflows/orders-ci.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'Src/Orders/**'
 
 jobs:
   ci:
     uses: ./.github/workflows/dotnet-ci-template.yml
     with:
-      service-path: Src/Orders/Orders.sln   
+      service-path: Src/Orders/Orders.sln
+      contract-project-path: Src/Orders/Orders.Contracts/Orders.Contracts.csproj

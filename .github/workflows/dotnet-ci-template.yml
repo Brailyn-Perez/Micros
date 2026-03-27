@@ -6,6 +6,10 @@ on:
       service-path:
         required: true
         type: string
+      contract-project-path:
+        required: false
+        type: string
+        description: "Path to the .Contracts project to publish (e.g., Src/Orders/Orders.Contracts/Orders.Contracts.csproj)"
 
 env:
   DOTNET_VERSION: '8.0.x'
@@ -19,12 +23,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Necesario para obtener el historial de commits
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
+      # === Preparación de dependencias ===
+      
       - name: Pack internal dependencies (for PR)
         if: github.event_name == 'pull_request'
         run: |
@@ -35,8 +43,8 @@ jobs:
             --configuration ${{ env.CONFIGURATION }} \
             --output ${{ env.ARTIFACTS_PATH }}
 
-      - name: Configure GitHub Packages (for main)
-        if: github.event_name == 'push'
+      - name: Configure GitHub Packages (for main branch pushes)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           dotnet nuget add source --username "${{ github.actor }}" \
             --password "${{ secrets.GITHUB_TOKEN }}" \
@@ -71,3 +79,52 @@ jobs:
           dotnet test "${{ inputs.service-path }}" \
             --no-build \
             --configuration ${{ env.CONFIGURATION }}
+
+      # === Publicación de NuGet ===
+
+      - name: Generate version for PR
+        if: github.event_name == 'pull_request' && inputs.contract-project-path != ''
+        id: version
+        run: |
+          # Obtén la versión base del .csproj
+          BASE_VERSION=$(grep -oPm1 "(?<=<Version>)[^<]+" "${{ inputs.contract-project-path }}" || echo "1.0.0")
+          # Crea versión con sufijo PR
+          PR_VERSION="${BASE_VERSION}-pr${GITHUB_RUN_NUMBER}"
+          echo "version=${PR_VERSION}" >> $GITHUB_OUTPUT
+          echo "PR Version: ${PR_VERSION}"
+
+      - name: Pack contract project (for PR publish)
+        if: github.event_name == 'pull_request' && inputs.contract-project-path != ''
+        run: |
+          mkdir -p ${{ env.ARTIFACTS_PATH }}
+          dotnet pack "${{ inputs.contract-project-path }}" \
+            --configuration ${{ env.CONFIGURATION }} \
+            --output ${{ env.ARTIFACTS_PATH }} \
+            --version-suffix "pr${GITHUB_RUN_NUMBER}"
+
+      - name: Configure GitHub Packages for publish
+        if: github.event_name == 'pull_request' && inputs.contract-project-path != ''
+        run: |
+          dotnet nuget add source --username "${{ github.actor }}" \
+            --password "${{ secrets.GITHUB_TOKEN }}" \
+            --store-password-in-clear-text \
+            --name github \
+            "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" \
+            || true
+
+      - name: Publish contract to GitHub Packages (for PR)
+        if: github.event_name == 'pull_request' && inputs.contract-project-path != ''
+        run: |
+          dotnet nuget push ${{ env.ARTIFACTS_PATH }}/*.nupkg \
+            --source github \
+            --skip-duplicate \
+            --api-key ${{ secrets.GITHUB_TOKEN }} \
+            || echo "Package already exists or publish failed"
+
+      - name: Upload NuGet artifacts
+        if: github.event_name == 'pull_request' && inputs.contract-project-path != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-packages
+          path: ${{ env.ARTIFACTS_PATH }}/*.nupkg
+          retention-days: 7
