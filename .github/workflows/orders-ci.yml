@@ -16,4 +16,3 @@ jobs:
     uses: ./.github/workflows/dotnet-ci-template.yml
     with:
       service-path: Src/Orders/Orders.sln
-      contract-project-path: Src/Orders/Orders.Contracts/Orders.Contracts.csproj
