@@ -9,5 +9,6 @@ namespace Inventory.Application.Interfaces.Repositories
     {
         Task<PagedResult<ProductQueryResponse>> SearchAsync(ProductQuery query, CancellationToken cancellationToken);
         Task DecreaseStockAsync(Guid productId, int quantity, CancellationToken cancellationToken);
+        Task<ProductDetails> GetDetailsByIdAsync(Guid id, CancellationToken cancellationToken);
     }
 }

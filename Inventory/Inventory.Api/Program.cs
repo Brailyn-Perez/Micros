@@ -1,4 +1,5 @@
 using Inventory.infrastructure.Extensions;
+using Inventory.Application.Extensions;
 
 namespace Inventory.Api
 {
@@ -16,6 +17,7 @@ namespace Inventory.Api
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddInfrastructure(builder.Configuration);
+            builder.Services.AddApplicationServices();
 
             var app = builder.Build();
 

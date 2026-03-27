@@ -28,6 +28,14 @@ namespace Inventory.infrastructure.Repositories
             }
         }
 
+        public async Task<ProductDetails> GetDetailsByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        {
+            return await _context.Products
+                           .AsNoTracking()
+                           .Select(ProductProjections.Details)
+                           .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+        }
+
         public async Task<PagedResult<ProductQueryResponse>> SearchAsync(ProductQuery query, CancellationToken cancellationToken)
         {
             var Queryable = _context.Products.AsNoTracking().AsQueryable();

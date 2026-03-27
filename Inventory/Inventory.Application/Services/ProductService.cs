@@ -40,19 +40,29 @@ namespace Inventory.Application.Services
             return await _repository.SaveChangesAsync(cancellationToken);
         }
 
-        public async Task<ProductDetails> GetByIdAsync(Guid id, CancellationToken cancellationToken)
+        public async Task<ProductDetails> GetDetailsByIdAsync(Guid id, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return await _repository.GetDetailsByIdAsync(id, cancellationToken);
         }
 
-        public Task<PagedResult<ProductQueryResponse>> SearchAsync(ProductQuery query, CancellationToken cancellationToken)
+        public async Task<PagedResult<ProductQueryResponse>> SearchAsync(ProductQuery query, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return await _repository.SearchAsync(query, cancellationToken);
         }
 
-        public Task<int> UpdateAsync(Guid id, UpdateProduct updateProduct, CancellationToken cancellationToken)
+        public async Task<int> UpdateAsync(Guid id, UpdateProduct updateProduct, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var product = await _repository.GetByIdAsync(id, cancellationToken);
+            if (product == null)
+                throw new BusinessLogicException("Product not found.");
+
+            product.Name = updateProduct.Name ?? product.Name;
+            product.Description = updateProduct.Description ?? product.Description;
+            product.Price = updateProduct.Price;
+            product.Stock = updateProduct.Stock;
+
+            await _repository.UpdateAsync(product, cancellationToken);
+            return await _repository.SaveChangesAsync(cancellationToken);
         }
     }
 }

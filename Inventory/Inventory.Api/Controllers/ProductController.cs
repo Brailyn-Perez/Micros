@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Inventory.Application.Interfaces.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Inventory.Api.Controllers
 {
@@ -6,6 +7,14 @@ namespace Inventory.Api.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
+        private readonly ILogger<ProductController> _logger;
+        private readonly IProductService _productService;
+
+        public ProductController(ILogger<ProductController> logger, IProductService productService)
+        {
+            _logger = logger;
+            _productService = productService;
+        }
 
     }
 }
