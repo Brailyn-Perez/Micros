@@ -15,4 +15,4 @@ jobs:
   ci:
     uses: ./.github/workflows/dotnet-ci-template.yml
     with:
-      service-path: Src/Orders/Orders.sln
+      service-path: Src/Orders 
