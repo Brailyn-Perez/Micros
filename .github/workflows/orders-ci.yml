@@ -32,8 +32,11 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
+      - name: Build Orders.Contracts
+        run: dotnet build Src/Orders/Orders.Contracts/Orders.Contracts.csproj --configuration Release
+
       - name: Pack Orders.Contracts
-        run: dotnet pack Src/Orders/Orders.Contracts/Orders.Contracts.csproj --configuration Release --output ./nupkgs
+        run: dotnet pack Src/Orders/Orders.Contracts/Orders.Contracts.csproj --configuration Release --no-build --output ./nupkgs
 
       - name: Publish to GitHub Packages
         run: |
