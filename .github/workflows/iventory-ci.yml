@@ -1,0 +1,18 @@
+name: inventory-ci
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'Src/Inventory/**'
+      - '.github/workflows/iventory-ci.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'Src/Inventory/**'
+
+jobs:
+  ci:
+    uses: ./.github/workflows/dotnet-ci-template.yml
+    with:
+      service-path: Src/Inventory
